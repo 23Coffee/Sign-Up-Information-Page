@@ -30,40 +30,42 @@ class NextPage extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.asset(
-                "assets/user-login.png",
-                width: 150,
-                height: 150,
-              ),
-            ),
-            if (user != null) ...[
-              UserInfoItem(label: 'Name', value: user!.name ?? '-'),
-              UserInfoItem(label: 'Surname', value: user!.surname ?? '-'),
-              UserInfoItem(label: 'Email', value: user!.email ?? '-'),
-              UserInfoItem(label: 'Phone Number', value: user!.phoneNumber ?? '-'),
-              UserInfoItem(label: 'Password', value: user!.password ?? '-'),
-              SizedBox(height: 20),
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset(
+                  "assets/user-login.png",
+                  width: 150,
+                  height: 150,
                 ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text(
-                  'Go Back',
-                  style: TextStyle(
-                    color: Colors.white,
+              ),
+              if (user != null) ...[
+                UserInfoItem(label: 'Name', value: user!.name ?? '-'),
+                UserInfoItem(label: 'Surname', value: user!.surname ?? '-'),
+                UserInfoItem(label: 'Email', value: user!.email ?? '-'),
+                UserInfoItem(label: 'Phone Number', value: user!.phoneNumber ?? '-'),
+                UserInfoItem(label: 'Password', value: user!.password ?? '-'),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    'Go Back',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-            ]
-          ],
+              ]
+            ],
+          ),
         ),
       ),
     );
